@@ -155,6 +155,7 @@
 		A4A583821B5F8C0300AAEC75 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		A4A583841B5F8C1000AAEC75 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		A4A583861B5F8C4400AAEC75 /* 步骤 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "步骤"; sourceTree = "<group>"; };
+		A4A583881B5F969000AAEC75 /* videoplayback_4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback_4.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +213,7 @@
 			children = (
 				A4A582321B5F798100AAEC75 /* AppDelegate.swift */,
 				A4A582341B5F798100AAEC75 /* ViewController.swift */,
+				A4A583881B5F969000AAEC75 /* videoplayback_4.mp4 */,
 				A4A582C81B5F7B7000AAEC75 /* MYC.c */,
 				A4A582C91B5F7B7000AAEC75 /* MYC.h */,
 				A4A582361B5F798100AAEC75 /* Main.storyboard */,
@@ -752,6 +754,7 @@
 				A4A5824E1B5F798100AAEC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4A5824F1B5F798100AAEC75 /* Build configuration list for PBXNativeTarget "RhFFmpegDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -760,6 +763,7 @@
 				A4A582511B5F798100AAEC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
