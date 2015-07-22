@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75F166391B5FE3C40036D158 /* SaveImage.c in Sources */ = {isa = PBXBuildFile; fileRef = 75F166371B5FE3C40036D158 /* SaveImage.c */; };
 		A4A582DE1B5F81D800AAEC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582DD1B5F81D800AAEC75 /* main.m */; };
 		A4A582E11B5F81D800AAEC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582E01B5F81D800AAEC75 /* AppDelegate.m */; };
 		A4A582E41B5F81D800AAEC75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582E31B5F81D800AAEC75 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75F166371B5FE3C40036D158 /* SaveImage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SaveImage.c; sourceTree = "<group>"; };
+		75F166381B5FE3C40036D158 /* SaveImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImage.h; sourceTree = "<group>"; };
 		A4A582D81B5F81D800AAEC75 /* RhFFmpeg-Object-C_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RhFFmpeg-Object-C_Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A582DC1B5F81D800AAEC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4A582DD1B5F81D800AAEC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				A4A582E01B5F81D800AAEC75 /* AppDelegate.m */,
 				A4A582E21B5F81D800AAEC75 /* ViewController.h */,
 				A4A582E31B5F81D800AAEC75 /* ViewController.m */,
+				75F166371B5FE3C40036D158 /* SaveImage.c */,
+				75F166381B5FE3C40036D158 /* SaveImage.h */,
 				A4A583891B5F9D0D00AAEC75 /* videoplayback_4.mp4 */,
 				A4A582E51B5F81D800AAEC75 /* Main.storyboard */,
 				A4A583011B5F820100AAEC75 /* FFmpeg-iOS */,
@@ -535,6 +540,7 @@
 			files = (
 				A4A582E41B5F81D800AAEC75 /* ViewController.m in Sources */,
 				A4A582E11B5F81D800AAEC75 /* AppDelegate.m in Sources */,
+				75F166391B5FE3C40036D158 /* SaveImage.c in Sources */,
 				A4A582DE1B5F81D800AAEC75 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,6 +758,7 @@
 				A4A582FD1B5F81D800AAEC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4A582FE1B5F81D800AAEC75 /* Build configuration list for PBXNativeTarget "RhFFmpeg-Object-C_DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -760,6 +767,7 @@
 				A4A583001B5F81D800AAEC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
