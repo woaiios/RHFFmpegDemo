@@ -1,0 +1,22 @@
+第一步：下载这个脚本
+https://github.com/kewlbear/FFmpeg-iOS-build-script
+
+第二步：打开终端
+1.cd 到上面那个脚本所在的文件夹 (FFmpeg-iOS-build-script)
+2.输入：./build-ffmpeg.sh
+    等着。。。。。直到脚本运行完
+
+第三步：打开(FFmpeg-iOS-build-script)文件夹
+现在可以看到多了好几个目录
+    FFmpeg-iOS
+    scratch
+    thin
+
+第四步:把FFmpeg-iOS拽到工程里,记得勾选Copy
+
+第五步:点击工程文件 -> 点击TARGETS -> Build Settings -> 搜索框里输入 Header Search Paths
+-> 加入FFmpeg的头文件路径 { $(PROJECT_DIR)/RhFFmpeg-Object-C_Demo/FFmpeg-iOS/include }
+
+第六步:点击Build Phases -> 选择 Link Binary With Libraries -> 点击 “+” 号
+    加入libiconv.dylib、libbz2.dylib、libz.dylib这三个库 (这一步坑了我好久，随着用的功能越多，可能还要加入别的库。)
+
