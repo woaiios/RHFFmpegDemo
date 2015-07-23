@@ -1,0 +1,37 @@
+第一步：下载这个脚本
+https://github.com/kewlbear/FFmpeg-iOS-build-script
+
+第二步：打开终端
+1.cd 到上面那个脚本所在的文件夹 (FFmpeg-iOS-build-script)
+2.输入：./build-ffmpeg.sh
+    等着。。。。。直到脚本运行完
+
+第三步：打开(FFmpeg-iOS-build-script)文件夹
+现在可以看到多了好几个目录
+    FFmpeg-iOS
+    scratch
+    thin
+
+第四步:把FFmpeg-iOS拽到工程里,记得勾选Copy
+
+第五步:点击工程文件 -> 点击TARGETS -> Build Settings -> 搜索框里输入 Header Search Paths
+-> 加入FFmpeg的头文件路径 { $(PROJECT_DIR)/RhFFmpeg-Object-C_Demo/FFmpeg-iOS/include }
+
+第六步:点击Build Phases -> 选择 Link Binary With Libraries -> 点击 “+” 号
+    加入libiconv.dylib、libbz2.dylib、libz.dylib这三个库 (这一步坑了我好久，随着用的功能越多，可能还要加入别的库。)
+
+/***************************************/
+/******          显示图像           *****/
+/***************************************/
+
+第七步:自行看ViewController的ViewDidLoad函数
+
+第八步：加入SDL
+    1.到SDL官网下载SDL http://www.libsdl.org/download-2.0.php
+    2.下载一个脚本编译SDL，地址忘了。把脚本放工程里吧。（sdl_ios.sh)
+    3.把脚本复制到SDL的Xcode-iOS->SDL文件夹。因为里头有个SDL.xcodeproj文件。这个脚本要和它在一个文件夹。
+    4.打开终端，输入./sdl_ios.sh。 运行脚本。
+    5.最后生成一个lib文件夹。里面有libSDL2.a文件。这个是fat文件，包含了armv7 armv7s i386 x86_64 arm64
+    6.在工程的目录上创建文件夹SDL，把libSDL2.a导入工程，把SDL工程里的头文件拽到工程里。
+    7.导入AudioTOolbox.framework。
+    8.至此，完成SDL配置。

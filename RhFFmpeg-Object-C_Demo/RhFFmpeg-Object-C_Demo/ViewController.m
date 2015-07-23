@@ -10,6 +10,7 @@
 #import "avformat.h"
 #import "swscale.h"
 #import "SaveImage.h"
+#import "SDL.h"
 
 @interface ViewController ()
 
@@ -72,8 +73,10 @@
                                 swsCtx = sws_getContext(cctx->width, cctx->height, cctx->pix_fmt, cctx->width, cctx->height, PIX_FMT_RGB24, SWS_BICUBIC, NULL, NULL, NULL);
                                 if (swsCtx) {
                                     sws_scale(swsCtx, fm->data, fm->linesize, 0, cctx->height, fm->data, fm->linesize);
-                                    if (++i>=333 && i <= 338) {
-                                        SaveFrame(fm, cctx->width, cctx->height, i);
+                                    if (++i>=600 && i <= 606) {
+                                        
+                                        SDL_Init(SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER);
+                                        //SaveFrame(fm, cctx->width, cctx->height, i);
                                     }
                                     
                                     
