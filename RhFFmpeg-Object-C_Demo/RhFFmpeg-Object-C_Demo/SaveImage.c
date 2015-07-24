@@ -73,5 +73,5 @@ void SD_ShowFrame(AVFrame *pFrame, SDL_Renderer *render, SDL_Rect *rect , SDL_Te
 }
 
 void SD_Dealloc(){
-    SDL_Quit();
+//    SDL_Quit();
 }
