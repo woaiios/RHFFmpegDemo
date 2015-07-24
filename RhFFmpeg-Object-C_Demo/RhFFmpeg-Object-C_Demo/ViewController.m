@@ -10,7 +10,7 @@
 #import "avformat.h"
 #import "swscale.h"
 #import "SaveImage.h"
-#import "SDL.h"
+
 
 @interface ViewController ()
 
@@ -22,14 +22,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 //    av_register_all();
-   unsigned int v = avformat_version();
+   
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    unsigned int v = avformat_version();
     NSLog(@"%d",v);//3679332
     av_register_all();
     
     AVFormatContext *ctx = NULL;
     const char *filePath = [[[NSBundle mainBundle] pathForResource:@"videoplayback_4" ofType:@"mp4"] cStringUsingEncoding:NSUTF8StringEncoding];
     int stau = avformat_open_input(&ctx, filePath, NULL, NULL);
-
+    
     if (stau == 0) {
         av_dump_format(ctx, 0, filePath, 0);
         
@@ -64,26 +69,74 @@
                     
                     int frameFinished;
                     AVPacket packet;
-                    int i = 0;
+                    int j = 0;
+                    
+                    
+                    
+                    
+                    
+                    
+                    SDL_SetMainReady();
+                    if ( SDL_Init(SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER)) {
+                        printf("ERROR SDL 初始化失败 %s",SDL_GetError());
+                        return;
+                    }
+                    
+                    SDL_Window* screen = SDL_CreateWindow("Maximized text",
+                                                          SDL_WINDOWPOS_UNDEFINED,
+                                                          SDL_WINDOWPOS_UNDEFINED,
+                                                          cctx->width,
+                                                          cctx->height,
+                                                          SDL_WINDOW_RESIZABLE);
+                    
+                    //    SDL_Surface* screen = SDL_GetWindowSurface(window);
+                    
+                    if (!screen) {
+                        fprintf(stderr, "不能获取screen");
+                        return;
+                    }
+                    SDL_Renderer *render = SDL_CreateRenderer(screen, -1,0/*SDL_RENDERER_SOFTWARE|SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC|SDL_RENDERER_TARGETTEXTURE*/);
+                    if (!render) {
+                        fprintf(stderr, SDL_GetError());
+                        return;
+                    }
+                    
+                    SDL_Rect rect = {0,0,cctx->width,cctx->height};
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    SDL_Texture *texture =  SDL_CreateTexture(render, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, cctx->width, cctx->height);
+                    if (!texture) {
+                        fprintf(stderr, SDL_GetError());
+                        return;
+                    }
+                    
+                    
+                    
                     while (0 == av_read_frame(ctx, &packet)) {//读帧，帧是由多个包组成的。
                         if (packet.stream_index == vStm) {
                             avcodec_decode_video2(cctx, fm, &frameFinished, &packet);
                             if (frameFinished) {//如果不等于0，证明有帧。
                                 struct SwsContext *swsCtx;
-                                swsCtx = sws_getContext(cctx->width, cctx->height, cctx->pix_fmt, cctx->width, cctx->height, PIX_FMT_RGB24, SWS_BICUBIC, NULL, NULL, NULL);
+                                swsCtx = sws_getContext(cctx->width, cctx->height, cctx->pix_fmt, cctx->width, cctx->height, PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
                                 if (swsCtx) {
                                     sws_scale(swsCtx, fm->data, fm->linesize, 0, cctx->height, fm->data, fm->linesize);
-                                    if (++i>=600 && i <= 606) {
-                                        
-                                        SDL_Init(SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER);
-                                        //SaveFrame(fm, cctx->width, cctx->height, i);
-                                    }
+                                    
+                                    SD_ShowFrame(fm, render, &rect, texture);
                                     
                                     
+                                    sws_freeContext(swsCtx);//释放swsCtx
                                 } else {NSLog(@"ERROR 没能获得图片上下文");}
+                                
                             }
+                            av_frame_unref(fm);
+                            printf("%d\n",++j);
                         }
-                        
+                        av_free_packet(&packet);
                     }
                     
                     av_free(buffer);
@@ -96,7 +149,8 @@
             }
             
         }
-        
+        SD_Dealloc();
+        avcodec_close(cctx);
         avformat_close_input(&ctx);
     }
 }

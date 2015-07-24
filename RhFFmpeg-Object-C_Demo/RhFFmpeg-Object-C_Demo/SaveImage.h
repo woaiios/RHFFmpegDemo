@@ -14,5 +14,11 @@
 #endif /* defined(__RhFFmpeg_Object_C_Demo__SaveImage__) */
 
 #include "avformat.h"
+#include "SDL.h"
+#import "SDL_main.h"
 
 void SaveFrame(AVFrame *pFrame, int width, int height, int iFrame);
+
+void SD_Init(int width, int height ,SDL_Renderer *render_ ,SDL_Texture *texture_,SDL_Rect *rect_);
+void SD_ShowFrame(AVFrame *pFrame,SDL_Renderer *render, SDL_Rect *rect , SDL_Texture *tex);
+void SD_Dealloc();

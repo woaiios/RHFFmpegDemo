@@ -12,6 +12,7 @@
 		A43CCBB91B609A9E008C345B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43CCBB71B609A9E008C345B /* AudioToolbox.framework */; };
 		A43CCBBC1B609AF2008C345B /* 步骤 in Resources */ = {isa = PBXBuildFile; fileRef = A43CCBBB1B609AF2008C345B /* 步骤 */; };
 		A43CCBBE1B609C7F008C345B /* sdl_ios.sh in Resources */ = {isa = PBXBuildFile; fileRef = A43CCBBD1B609C7F008C345B /* sdl_ios.sh */; };
+		A43CCBC01B60DC48008C345B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43CCBBF1B60DC48008C345B /* OpenGLES.framework */; };
 		A4A582DE1B5F81D800AAEC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582DD1B5F81D800AAEC75 /* main.m */; };
 		A4A582E11B5F81D800AAEC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582E01B5F81D800AAEC75 /* AppDelegate.m */; };
 		A4A582E41B5F81D800AAEC75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A582E31B5F81D800AAEC75 /* ViewController.m */; };
@@ -103,6 +104,7 @@
 		A43CCBB71B609A9E008C345B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A43CCBBB1B609AF2008C345B /* 步骤 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "步骤"; sourceTree = "<group>"; };
 		A43CCBBD1B609C7F008C345B /* sdl_ios.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = sdl_ios.sh; sourceTree = "<group>"; };
+		A43CCBBF1B60DC48008C345B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A4A582D81B5F81D800AAEC75 /* RhFFmpeg-Object-C_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RhFFmpeg-Object-C_Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A582DC1B5F81D800AAEC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4A582DD1B5F81D800AAEC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43CCBC01B60DC48008C345B /* OpenGLES.framework in Frameworks */,
 				A43CCBB91B609A9E008C345B /* AudioToolbox.framework in Frameworks */,
 				A4A5837F1B5F8B8000AAEC75 /* libiconv.dylib in Frameworks */,
 				A4A5837D1B5F88E900AAEC75 /* libbz2.dylib in Frameworks */,
@@ -335,6 +338,7 @@
 		A4A582CF1B5F81D800AAEC75 = {
 			isa = PBXGroup;
 			children = (
+				A43CCBBF1B60DC48008C345B /* OpenGLES.framework */,
 				A43CCBBB1B609AF2008C345B /* 步骤 */,
 				A43CCBBD1B609C7F008C345B /* sdl_ios.sh */,
 				A43CCBB71B609A9E008C345B /* AudioToolbox.framework */,
